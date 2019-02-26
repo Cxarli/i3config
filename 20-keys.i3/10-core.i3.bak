@@ -1,0 +1,14 @@
+# vim:filetype=conf
+
+# start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+shift+d exec --no-startup-id i3-dmenu-desktop
+
+# bindsym $mod+d exec /opt/fzf-menu/start
+# for_window [class="fzf-menu"] floating enable
+
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
