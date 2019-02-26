@@ -11,7 +11,12 @@ output="${1:-$HOME/.config/i3/config}"
 function findconfig {
     local dir="$1"
 
-    find "$dir" -mindepth 1 -maxdepth 1 -iname "*.i3" -not -iname "*.bak" | sort -n
+    find "$dir" \
+        -mindepth 1 -maxdepth 1 \
+        -not -path ".git" \
+        -iname "*.i3" \
+        -not -iname "*.bak" \
+        | sort -n
 }
 
 function hr {
