@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+IFS=$'\n'
+
+
+source="$HOME/i3"
+output="${1:-$HOME/.config/i3/config}"
+
+function findconfig {
+    local dir="$1"
+
+    find "$dir" -mindepth 1 -maxdepth 1 -iname "*.i3" -not -iname "*.bak" | sort -n
+}
+
+function hr {
+    perl -e 'print "#" . ("-#" x 39) . "\n"'
+}
+
+function apply_dir {
+    local dir="$1"
+
+    for sub in $(findconfig "$dir"); do
+        if [[ -f "$sub" ]]; then
+            local subnosource="${sub##$source/}"
+
+            #echo;echo
+            hr
+            echo "#"
+            echo "#        $subnosource"
+            echo "#"
+            echo
+
+            grep -v '# vim:filetype=conf' "$sub"
+
+            echo
+            echo "#"
+            echo "#        $subnosource"
+            echo "#"
+            #hr
+            #echo;echo
+        else
+            apply_dir "$sub"
+        fi
+    done
+}
+
+function generate {
+    apply_dir "$source"
+    hr
+}
+
+# Generate output config
+generate > "$output"
+
+# Check output config
+i3 -C -c "$output" || exit $?
+
+set +e
+
+# Check for duplicate keybindings
+duplicate="$(grep -Eo "^bindsym.*" -hR . | cut -d' ' -f2 | sort | uniq -c | grep -v "^\s*1 " | sort -n | cut -c9-)"
+
+if [[ -n "$duplicate" ]]; then
+    pushd "$source" >/dev/null || exit 1
+
+    echo "There are duplicate keybindings you might want to check:"
+
+    for binding in $duplicate; do
+        grep --color=auto "^bindsym $binding .*" -nR .
+    done
+
+    popd >/dev/null || exit 1
+fi
+
+# Get i3 restart key
+restartkey="$(grep -Eo "^bindsym.*restart\$" "$output" | sed 's/^bindsym //g;s/ restart$//g')"
+
+reloadkey="$(grep -Eo "^bindsym.*reload\$" "$output" | sed 's/^bindsym //g;s/ reload$//g')"
+
+echo "i3config generated, now do $reloadkey to reload the config or do $restartkey to restart i3"

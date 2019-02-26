@@ -1,0 +1,3 @@
+# vim:filetype=conf
+
+# exec --no-startup-id "compton -cC"
