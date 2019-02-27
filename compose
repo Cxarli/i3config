@@ -65,7 +65,7 @@ i3 -C -c "$output" || exit $?
 set +e
 
 # Check for duplicate keybindings
-duplicate="$(grep -Eo "^bindsym.*" -hR . | cut -d' ' -f2 | sort | uniq -c | grep -v "^\s*1 " | sort -n | cut -c9-)"
+duplicate="$(grep -Eo "^bindsym.*" -hR "$source" | cut -d' ' -f2 | sort | uniq -c | grep -v "^\s*1 " | sort -n | cut -c9-)"
 
 if [[ -n "$duplicate" ]]; then
     pushd "$source" >/dev/null || exit 1
