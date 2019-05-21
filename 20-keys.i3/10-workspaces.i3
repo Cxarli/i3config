@@ -30,3 +30,19 @@ bindsym $mod+Shift+9     move container to workspace $ws9
 bindsym $mod+Shift+0     move container to workspace $ws10
 bindsym $mod+Shift+minus move container to workspace $ws11
 bindsym $mod+Shift+equal move container to workspace $ws12
+
+
+# Switch to workspace with keypad
+
+bindsym KP_End      workspace $ws1
+bindsym KP_Down     workspace $ws2
+bindsym KP_Next     workspace $ws3
+bindsym KP_Left     workspace $ws4
+bindsym KP_Begin    workspace $ws5
+bindsym KP_Right    workspace $ws6
+bindsym KP_Home     workspace $ws7
+bindsym KP_Up       workspace $ws8
+bindsym KP_Prior    workspace $ws9
+bindsym KP_Divide   workspace $ws10
+bindsym KP_Multiply workspace $ws11
+bindsym KP_Subtract workspace $ws12

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# a script to increase volume with a software limit
+
+inc="${1:-0}"
+
+limit="100"
+
+if [[ "${2:-no}" = "force" ]]; then
+	limit="200"
+fi
+
+
+if [[ $inc -lt 0 ]]; then
+	pactl set-sink-volume 0 "${inc}%"
+
+elif [[ $(getvol) -lt $limit ]]; then
+	pactl set-sink-volume 0 "${inc}%"
+fi

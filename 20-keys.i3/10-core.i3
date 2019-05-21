@@ -1,12 +1,12 @@
 # vim:filetype=conf
 
-bindsym $mod+Return   exec --no-startup-id gnome-terminal
+bindsym $mod+Return   exec --no-startup-id "gnome-terminal"
 bindsym $mod+KP_Enter exec --no-startup-id "gnome-terminal"
 
 # Kill focused window
 bindsym $mod+q kill
 
-# Show rofi (program launcher)
+# Toggle rofi (program launcher)
 bindsym Menu exec "pidof rofi && pkill rofi || rofi -combi-modi window,drun -show combi"
 
 # Reload the configuration file
