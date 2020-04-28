@@ -1,7 +1,7 @@
 # vim:filetype=conf
 
-bindsym $mod+Return   exec --no-startup-id "gnome-terminal"
-#bindsym $mod+KP_Enter exec --no-startup-id "gnome-terminal"
+bindsym $mod+Return   exec "gnome-terminal"
+#bindsym $mod+KP_Enter exec "gnome-terminal"
 
 # Kill focused window
 bindsym $mod+q kill
