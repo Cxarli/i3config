@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# make sure we are in the right directory
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+
 set -eu
 set -o pipefail
 IFS=$'\n'
@@ -62,6 +66,12 @@ generate > "$output"
 # Check output config
 i3 -C -c "$output" || exit $?
 
+
+
+# Mopidy spotify
+cat mopidy.conf mopidy-spotify.conf > ~/.config/mopidy/mopidy.conf
+
+
 set +e
 
 # Check for duplicate keybindings
@@ -83,5 +93,7 @@ fi
 restartkey="$(grep -Eo "^bindsym.*restart\$" "$output" | sed 's/^bindsym //g;s/ restart$//g')"
 
 reloadkey="$(grep -Eo "^bindsym.*reload\$" "$output" | sed 's/^bindsym //g;s/ reload$//g')"
+
+
 
 echo "i3config generated, now do $reloadkey to reload the config or do $restartkey to restart i3"

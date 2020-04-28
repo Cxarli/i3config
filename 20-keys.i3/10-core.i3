@@ -7,7 +7,7 @@ bindsym $mod+Return   exec "gnome-terminal"
 bindsym $mod+q kill
 
 # Toggle rofi (program launcher)
-bindsym Insert exec "pidof rofi && pkill rofi || rofi -show combi"
+bindsym Hyper_R exec "pidof rofi && pkill rofi || rofi -show combi"
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload

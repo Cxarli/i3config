@@ -4,4 +4,4 @@
 #	status_command polybar example
 #}
 
-exec launch_polybar
+exec_always --no-startup-id launch_polybar

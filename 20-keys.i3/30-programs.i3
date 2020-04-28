@@ -8,11 +8,10 @@ bindsym $mod+Shift+m exec "/usr/bin/lowriter"
 bindsym $mod+n exec "/usr/bin/nautilus"
 bindsym $mod+Shift+n exec "/usr/bin/thunar"
 bindsym $mod+c exec "/usr/bin/gnome-calculator"
-bindsym $mod+bracketleft exec "/usr/bin/xpad -n"
+bindsym $mod+p exec "/usr/bin/xpad -n"
 
-# Kill common
-# bindsym $mod+p exec "killall telegram-deskto whatsie"
-# bindsym $mod+Shift+p exec "killall -9 telegram-deskto whatsie"; [class="Firefox"] move to workspace "E12"
+# Kill tg
+bindsym $mod+bracketleft exec "killall telegram-deskto"
 
 # Picom (formerly compton)
 bindsym $mod+comma  exec "picom -b"
