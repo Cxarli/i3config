@@ -11,12 +11,12 @@ bindsym $mod+c exec --no-startup-id "/usr/bin/gnome-calculator"
 bindsym $mod+bracketleft exec --no-startup-id "/usr/bin/xpad -n"
 
 # Kill common
-bindsym $mod+p exec --no-startup-id "killall telegram-deskto whatsie"
-bindsym $mod+Shift+p exec --no-startup-id "killall -9 telegram-deskto whatsie"; [class="Firefox"] move to workspace "E12"
+# bindsym $mod+p exec --no-startup-id "killall telegram-deskto whatsie"
+# bindsym $mod+Shift+p exec --no-startup-id "killall -9 telegram-deskto whatsie"; [class="Firefox"] move to workspace "E12"
 
-# Compton
-bindsym $mod+comma  exec --no-startup-id "compton -b"
-bindsym $mod+period exec --no-startup-id "killall compton"
+# Picom (formerly compton)
+bindsym $mod+comma  exec --no-startup-id "picom -b"
+bindsym $mod+period exec --no-startup-id "killall picom"
 
 # Screenshots
 bindsym Print exec --no-startup-id "/usr/bin/gnome-screenshot -ia"
