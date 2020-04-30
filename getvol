@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-SINK="$(pactl list short | grep RUNNING | grep -Eo "^[0-9]*")"
+LC=C
+LC_ALL=C
+
+SINK="$(pactl list short | grep RUNNING | grep output | grep -Eo "^[0-9]*" | head -n1)"
 
 if [ -z "$SINK" ]; then SINK=0; fi
 
-pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(($SINK+1)) | tail -n1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+pactl list sinks | grep -E '^\s*Volume:' | head -n $SINK | tail -n1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'

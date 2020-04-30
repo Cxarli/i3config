@@ -18,6 +18,9 @@ bindsym $mod+comma  exec "picom -b"
 bindsym $mod+period exec "killall picom"
 
 # Screenshots
-bindsym Print exec "/usr/bin/gnome-screenshot -ia"
-bindsym Ctrl+Print exec "/usr/bin/gnome-screenshot -icw"
-bindsym $mod+Print exec "/usr/bin/gnome-screenshot -ica"
+# To disable the annoying flash, you'll have to do some manual patching
+# of gnome-screenshot.
+# # Also see issue https://gitlab.gnome.org/GNOME/gnome-screenshot/-/issues/64
+bindsym Print exec "gnome-screenshot -ia"
+bindsym Ctrl+Print exec "gnome-screenshot -icw"
+bindsym $mod+Print exec "gnome-screenshot -ica"

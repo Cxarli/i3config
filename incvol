@@ -3,7 +3,7 @@
 
 inc="${1:-0}"
 
-SINK="$(pactl list short | grep RUNNING | grep -Eo "^[0-9]*")"
+SINK="$(pactl list short | grep RUNNING | grep output | grep -Eo "^[0-9]*")"
 
 if [ -z "$SINK" ]; then SINK=0; fi
 

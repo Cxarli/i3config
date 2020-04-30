@@ -12,10 +12,11 @@ for_window [title="JetBrains Toolbox"]          floating enable
 for_window [title="Clevo xSM wmi Utility"]      floating enable
 for_window [class="gnuplot_qt"]                 floating enable
 for_window [instance="xpad"]                    floating enable
+for_window [instance="gnome-screenshot"]        floating enable
 
 
 # Sticky
-for_window [class="Gnome-screenshot"]   sticky enable
+for_window [instance="gnome-screenshot"] sticky enable
 for_window [instance="xpad"]            sticky enable
 
 
