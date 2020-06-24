@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # a script to increase volume with a software limit
 
+export LC=C 
+export LC_ALL=C 
+
 inc="${1:-0}"
-
-SINK="$(pactl list short | grep RUNNING | grep output | grep -Eo "^[0-9]*")"
-
-if [ -z "$SINK" ]; then SINK=0; fi
 
 
 limit="100"
@@ -15,9 +14,13 @@ if [[ "${2:-no}" = "force" ]]; then
 fi
 
 
-if [[ $inc -lt 0 ]]; then
-	pactl set-sink-volume "$SINK" "${inc}%"
+current=$(amixer get Master | grep Left | grep -Eo "[0-9]*%" | cut -d'%' -f1)
 
-elif [[ $(getvol) -lt $limit ]]; then
-	pactl set-sink-volume "$SINK" "${inc}%"
+
+if [[ $inc -lt 0 ]]; then
+	amixer set Master "$(($current + $inc))%"
+
+elif [[ $current -lt $limit ]]; then
+	amixer set Master "$(($current + $inc))%"
+
 fi

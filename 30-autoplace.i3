@@ -27,11 +27,16 @@ for_window [instance="xpad"]            sticky enable
 for_window [class="Spotify"] move to workspace $ws1
 
 ## Workspace 4 (web)
-assign [class="Firefox"]  $ws4
+assign [class="firefox"]  $ws4
 assign [class="Chromium"] $ws4
+
+## Workspace 8 (virtual meetings)
+for_window [instance="zoom"]  move to workspace $ws8
+assign [class="Discord"] $ws8
+
 
 ## Workspace 10 (comm)
 assign [class="Telegram"] $ws10
 
-for_window [title="WhatsApp"] move to workspace $ws10
-for_window [title="Whatsie"]  move to workspace $ws10
+# for_window [title="WhatsApp"] move to workspace $ws10
+# for_window [title="Whatsie"]  move to workspace $ws10

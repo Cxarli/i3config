@@ -12,7 +12,7 @@ bindsym Shift+XF86AudioRaiseVolume exec incvol +1
 bindsym XF86AudioLowerVolume       exec incvol -5
 bindsym Shift+XF86AudioLowerVolume exec incvol -1
 
-bindsym XF86AudioMute              exec pactl set-sink-mute   0 toggle
+bindsym XF86AudioMute              exec amixer set Master toggle
 
 # Player controls
 
