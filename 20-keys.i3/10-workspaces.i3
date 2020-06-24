@@ -15,6 +15,12 @@ bindsym $mod+0     workspace $ws10
 bindsym $mod+minus workspace $ws11
 bindsym $mod+equal workspace $ws12
 
+bindsym $mod+Tab   workspace back_and_forth
+# PgDown
+bindsym $mod+Prior workspace prev
+# PgUp
+bindsym $mod+Next  workspace next
+
 
 # Move focused container to workspace
 

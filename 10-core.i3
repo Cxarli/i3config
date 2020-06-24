@@ -10,3 +10,6 @@ exec_always --no-startup-id "xmodmap ~/.Xmodmap"
 # Disable screen dimming
 # https://www.reddit.com/r/i3wm/comments/399nr3/how_to_stop_screen_turn_off_after_several_minutes/cs1k3ro
 exec_always --no-startup-id "xset s off; xset -dpms; xset s noblank"
+
+# Show popups even when fullscreen
+popup_during_fullscreen smart

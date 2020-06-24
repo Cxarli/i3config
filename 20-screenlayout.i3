@@ -9,3 +9,6 @@ exec_always --no-startup-id ~/.screenlayout/auto.sh
 bindsym $mod+Ctrl+3 exec --no-startup-id ~/.screenlayout/3.sh
 
 bindsym $mod+Ctrl+backslash exec --no-startup-id ~/.screenlayout/auto.sh
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
